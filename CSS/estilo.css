@@ -1,0 +1,622 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: black;
+}
+
+:root {
+  --tamanho-header: 80px;
+  --tamanho-banner: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+  --tamanho-simulador: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+  --tamanho-login: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+  --tamanho-footer: 65px;
+}
+
+.hero {
+    background-image: url('/Projeto-individual/assets/imgs/fundoroxo.avif');
+
+    background-position: center;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  margin: auto;
+  padding-left: 0;
+}
+
+.container-bttn {
+  display: flex;
+  justify-content:space-between;
+  width: 80%;
+  align-items: center;
+ 
+}
+
+.botton{
+   padding: 14px 24px;
+  border: none;
+  background: linear-gradient(135deg, #8a2be2, #6a00ff);
+  color: white;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(138,43,226,0.4);
+  transition: transform 0.1s ease;
+  transform-style: preserve-3d;
+  margin-right: 30px;
+}
+.botton ::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.3), transparent);
+  opacity: 0;
+  transition: 0.3s;
+}
+.botton :hover ::after{
+  opacity: 1;
+}
+
+
+.header {
+  height: var(--tamanho-header);
+  border-bottom: 2px solid rgb(128, 6, 228)
+}
+
+.header .container {
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.header a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+
+.agora {
+  font-weight: 800;
+}
+
+.navbar {
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  color: rgb(128, 6, 228)
+}
+
+.navbar .botton{
+  margin-left: auto;
+}
+
+.entrar{
+  padding: 10px 20px;
+    border: none;
+    background: rgb(128, 6, 228);
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.4px;
+    box-shadow: 0 4px 20px rgba(249, 115, 22, 0.35);
+    transform: translateY(-3px);
+    margin-right: 50px;
+}
+
+.titulo {
+  color: #ffffff;
+  width: fit-content;
+  font-weight: 500;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+/* BANNER */
+
+.banner {
+  height: 80vh;
+  background: url('/Projeto-individual/assets/imgs/fundoroxo.avif') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  color: #fff;
+}
+
+.banner-content {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.banner .container {
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.banner .container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  margin-left: 150px;
+}
+
+.banner .container p {
+  width: 50%;
+  margin: 0;
+  padding: 0;
+  font-size: 36px;
+}
+
+.banner .container span {
+  font-weight: 800;
+}
+
+/* MISSÃO VISÃO VALORES */
+
+.social {
+  background-color: #e5e5e5;
+  display: flex;
+}
+
+.social .container {
+  justify-content: center;
+}
+
+.box .boxes{
+  width: 80px;
+}
+
+.box img {
+  width: 220px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.box h4 {
+  margin-top: 15px;
+  font-size: 18px;
+  color: #222;
+}
+
+.box p {
+  font-size: 14px;
+  color: #555;
+}
+
+.box .jogos img {
+  width: 200px;
+}
+
+.social .container .boxes {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 30px 0;
+}
+
+.social p {
+  text-align: center;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* FOOTER */
+
+.footer {
+  background-color: #0d0120;
+  height: 150px;
+  color: #fff;
+  display: flex;
+  font-size: 15px;
+}
+
+.footer .container {
+  justify-content: center;
+  text-align: center;
+}
+
+.footer .container .version {
+  font-size: 12px;
+}
+
+/* LOGIN */
+
+.login {
+  height: var(--tamanho-login);
+  background-image: url('/Projeto-individual/assets/imgs/fundoroxo.avif');
+  background-size: cover;
+}
+
+.login .container {
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 30px;
+}
+.cards {
+  position: relative;
+  width: 500px;
+  height: 400px;
+}
+
+.card {
+  position: absolute;
+  width: 300px;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.7);
+  transition: 0.3s;
+  color: rgb(255, 255, 255);
+  align-items: center;
+}
+.card:hover {
+  transform: scale(1.15) rotate(0deg);
+  z-index: 3;
+}
+
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-img:hover {
+  transform: scale(1.15) rotate(0deg);
+  z-index: 3;
+}
+
+.card-img {
+  width: 240px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+  transition: 0.3s;
+}
+
+.formulario {
+  display: flex;
+  height: 90%;
+  width: 80%;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center; 
+  margin-left: 30px;
+}
+
+.formulario span {
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.formulario input {
+  border: 2px solid #32b9cd;
+  text-align: center;
+  border-radius: 10px;
+  margin: 0;
+}
+
+.formulario select {
+  border: 2px solid #32b9cd;
+  background-color: white;
+  color: gray;
+  height: 36px;
+  text-align: center;
+  border-radius: 10px;
+  margin: 0;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding: 5px 0;
+}
+
+.botao {
+  cursor: pointer;
+  font-family: "Barlow", sans-serif;
+  border: 0;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 18px;
+  color: #fff;
+  background-color: #ED145B;
+  width: 120px;
+  height: 30px;
+  align-self: center;
+  margin-top: 20px;
+}
+
+.loading-div {
+  width: 50px;
+  display: none;
+}
+
+.loading-div img {
+  height: 50px;
+  width: 50px;
+}
+
+#div_erros_login {
+  display: none
+}
+
+/* FORMULARIO */
+
+.alerta_erro{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card_erro {
+  display: none;
+  background-color: #fff;
+  color: black;
+  width: 230px;
+  position: fixed;
+  border-radius: 4px;
+  border: #ED145B 3px solid;
+  padding: 10px;
+  margin-right: 10%;
+}
+
+.card_erro #mensagem_erro{
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.formulario .tipo_campo {
+  font-size: 20px;
+  font-weight: 600 !important;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+input {
+  margin-bottom: 10px;
+  border: 2px solid #32b9cd;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.btn {
+  font-family: "Barlow", sans-serif;
+  border: 0;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 10px 15px;
+  color: white;
+  background-color: #ED145B;
+  width: 120px;
+  align-self: center;
+  margin-top: 5px;
+}
+
+.loading-div {
+  width: 50px;
+  margin: auto;
+  display: none;
+}
+
+.loading-div img {
+  height: 50px;
+  width: 50px;
+}
+
+/* SIMULADOR */
+
+.simulador {
+  color: white;
+}
+
+.simulador .container {
+  flex-direction: column;
+  overflow: scroll; 
+  height: var(--tamanho-simulador);
+}
+
+/* ALERTA */
+
+#alerta {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.mensagem-alarme {
+  background-color: white;
+  border-radius: 5px;
+  width: 300px;
+  height: 80px;
+  margin: 10px;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.mensagem-alarme h3 {
+  font-size: 14px;
+  margin: 0;
+}
+
+.mensagem-alarme .informacao {
+  width: 66%;
+}
+
+.alarme-sino {
+  width: 48px;
+  height: 48px;
+  animation-name: bell;
+  animation-duration: 4s;
+  background-image: url('https://cdn-icons-png.flaticon.com/512/1157/1157000.png');
+  background-size: cover;
+  animation-iteration-count: infinite;
+}
+
+@keyframes bell {
+  0%   {transform: rotate(25deg)}
+  25%  {transform: rotate(-25deg)}
+  50%  {transform: rotate(25deg)}
+  75%  {transform: rotate(-25deg)}
+  100% {transform: rotate(25deg)}
+}
+span{
+  color: rgb(128, 6, 228);
+}
+
+
+.subtitulo-banner {
+  margin-top: 10px;
+  color: #696e6e;
+  align-items: flex-start;
+}
+.banner .botton{
+  padding: 10px 20px;
+    border: none;
+    background: rgb(128, 6, 228);
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.4px;
+    box-shadow: 0 4px 20px rgba(249, 115, 22, 0.35);
+    transform: translateY(-3px);
+}
+
+.imagens-banner {
+  position: absolute;
+  right: 80px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+}
+
+
+.c1 {
+  left: 0;
+  top: 40px;
+  transform: rotate(-10deg);
+  z-index: 1;
+}
+.c2 {
+  left: 140px;
+  top: 0;
+  transform: scale(1.1);
+  z-index: 2;
+}
+
+/* DIREITA */
+.c3 {
+  left: 280px;
+  top: 40px;
+  transform: rotate(10deg);
+  z-index: 1;
+}
+
+.img1, .img3 {
+  opacity: 0.95;
+}
+
+
+.texto {
+  max-width: 520px;
+  color: white;
+}
+
+.texto h1 {
+  font-size: 52px;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.texto span {
+  color: #8a2be2;
+}
+
+.texto p {
+  margin: 20px 0;
+  color: #bcbcbc;
+  font-size: 16px;
+}
+.btn-quiz {
+  padding: 14px 24px;
+  border: none;
+  background: linear-gradient(135deg, #8a2be2, #6a00ff);
+  color: white;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(138,43,226,0.4);
+  transition: transform 0.1s ease;
+  transform-style: preserve-3d;
+}
+
+.btn-quiz::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.3), transparent);
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.btn-quiz:hover::after {
+  opacity: 1;
+}
+
+.tag {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 6px 14px;
+  background: linear-gradient(135deg, #8a2be2, #6a00ff);
+  color: white;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
