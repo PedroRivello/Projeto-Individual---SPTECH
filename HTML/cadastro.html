@@ -106,7 +106,7 @@
 
 <script>
 
-  // Array para armazenar empresas cadastradas para validação de código de ativação 
+  // Array para armazenar os usuarios cadastradas para validação de código de ativação 
   let Usuarios_Cadastrados = [];
 
   function cadastrar() {
@@ -119,7 +119,7 @@
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
     var codigoVar = codigo_input.value;
-    var idEmpresaVincular
+    var idUsuarioVincular
 
     // Verificando se há algum campo em branco
     if (
@@ -139,7 +139,7 @@
       setInterval(sumirMensagem, 5000);
     }
 
-    // Verificando se o código de ativação é de algum usuário cadastrada
+    // Verificando se o código de ativação é de algum usuário cadastrado
     for (let i = 0; i < Usuarios_Cadastrados.length; i++) {
       if (Usuarios_Cadastrados[i].codigo_ativacao == codigoVar) {
         idUsuarioVincular = Usuarios_Cadastrados[i].id
@@ -194,7 +194,7 @@
     return false;
   }
 
-  // Listando empresas cadastradas 
+  // Listando usuarios cadastrados 
   function listar() {
     fetch("/empresas/listar", {
       method: "GET",
