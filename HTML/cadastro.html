@@ -200,9 +200,9 @@
       method: "GET",
     })
       .then(function (resposta) {
-        resposta.json().then((empresas) => {
-          empresas.forEach((empresa) => {
-            Usuarios_Cadastrados.push(empresa);
+        resposta.json().then((usuarios) => {
+          usuarios.forEach((usuario) => {
+            Usuarios_Cadastrados.push(usuario);
 
             console.log("Usuarios Cadastrados")
             console.log(Usuarios_Cadastrados[0].codigo_ativacao)
