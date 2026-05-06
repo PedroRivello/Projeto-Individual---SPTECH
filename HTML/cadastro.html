@@ -107,7 +107,7 @@
 <script>
 
   // Array para armazenar empresas cadastradas para validação de código de ativação 
-  let listaEmpresasCadastradas = [];
+  let Usuarios_Cadastrados = [];
 
   function cadastrar() {
     // aguardar();
@@ -139,10 +139,10 @@
       setInterval(sumirMensagem, 5000);
     }
 
-    // Verificando se o código de ativação é de alguma empresa cadastrada
-    for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
-      if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
-        idEmpresaVincular = listaEmpresasCadastradas[i].id
+    // Verificando se o código de ativação é de algum usuário cadastrada
+    for (let i = 0; i < Usuarios_Cadastrados.length; i++) {
+      if (Usuarios_Cadastrados[i].codigo_ativacao == codigoVar) {
+        idUsuarioVincular = Usuarios_Cadastrados[i].id
         console.log("Código de ativação válido.");
         break;
       } else {
@@ -164,7 +164,7 @@
         nomeServer: nomeVar,
         emailServer: emailVar,
         senhaServer: senhaVar,
-        idEmpresaVincularServer: idEmpresaVincular
+        idUsuarioServer: idUsuarioVincular
       }),
     })
       .then(function (resposta) {
@@ -202,10 +202,10 @@
       .then(function (resposta) {
         resposta.json().then((empresas) => {
           empresas.forEach((empresa) => {
-            listaEmpresasCadastradas.push(empresa);
+            Usuarios_Cadastrados.push(empresa);
 
-            console.log("listaEmpresasCadastradas")
-            console.log(listaEmpresasCadastradas[0].codigo_ativacao)
+            console.log("Usuarios Cadastrados")
+            console.log(Usuarios_Cadastrados[0].codigo_ativacao)
           });
         });
       })
