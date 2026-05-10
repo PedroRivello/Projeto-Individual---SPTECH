@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo - Quiz</title>
+    <link rel="stylesheet" href="../CSS/estiloQuiz.css">
+</head>
+
+
+<body onload="onloadEsconder()">
+    <div class="header">
+
+    <div class="containerHeader">
+
+        <div class="logoArea">
+            <img src="../assets/imgs/Logo-gamesPerfilColor.png">
+
+            <h2 class="titulo">
+                Perfil <span>Games</span>
+            </h2>
+        </div>
+        <ul class="navbar">
+            <li>
+                <a href="../HTML/index.html">Inicial</a>
+            </li>
+            <li>
+                <a href="../HTML/simulador.html">Simulador</a>
+            </li>
+            <li>|</li>
+            <li>
+                <a href="../HTML/cadastro.html">Cadastro</a>
+            </li>
+        </ul>
+
+        <a href="../HTML/login.html" class="btnHeader">
+            Entrar
+        </a>
+    </div>
+
+</div>
+    <div id="pontuacaoEJogo">
+
+        <h1 class="tituloQuiz">
+            QUIZ <span>PERFIL</span> GAMES
+        </h1>
+
+        <button id="btnIniciarQuiz" onclick="iniciarQuiz()">
+            COMEÇAR QUIZ
+        </button>
+
+        <div id="jogo" class="width-fit-content flex-colunar border-secondary">
+
+
+            <div class="cabecalhoPergunta">
+
+                <div id="infoQuestao">
+                    QUESTÃO
+                    <span id="spanNumeroDaQuestaoAtual"></span>
+                    /
+                    <span id="qtdQuestoes"></span>
+                </div>
+
+                <div id="perguntaDaQuestaoAtual">
+                    <span id="spanQuestaoExibida"></span>
+                </div>
+
+            </div>
+
+            <div id="opcoes">
+
+                <span>
+                    <input type="radio" id="primeiraOpcao" name="option" class="radio" />
+                    <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
+                </span>
+
+                <span>
+                    <input type="radio" id="segundaOpcao" name="option" class="radio" />
+                    <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
+                </span>
+
+                <span>
+                    <input type="radio" id="terceiraOpcao" name="option" class="radio" />
+                    <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
+                </span>
+
+                <span>
+                    <input type="radio" id="quartaOpcao" name="option" class="radio" />
+                    <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
+                </span>
+
+            </div>
+
+            <div id="botoes">
+
+                <button onclick="avancar()" id="btnProx">
+                    Próxima
+                </button>
+
+                <button onclick="tentarNovamente()" id="btnTentarNovamente">
+                    Refazer Quiz
+                </button>
+
+            </div>
+
+            <div id="resultadoFinal">
+                <h2 id="tituloResultado"></h2>
+                <p id="descricaoResultado"></p>
+                <button id="btnCadastro" onclick="irCadastro()">
+                    CADASTRAR PARA ENCONTRAR JOGADORES COM PERFIL PARECIDO COM O SEU
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>
+<script>
+    const listaDeQuestoes = [
+
+        {
+            pergunta: "Qual estilo de jogo você prefere?",
+            alternativaA: "Competitivo Online",
+            alternativaB: "Exploração e aventura",
+            alternativaC: "História envolvente",
+            alternativaD: "Construção e criatividade",
+
+            perfilA: "competitivo",
+            perfilB: "explorador",
+            perfilC: "historia",
+            perfilD: "criativo"
+        },
+
+        {
+            pergunta: "Você prefere jogar:",
+            alternativaA: "Ranked e PvP",
+            alternativaB: "Mundo aberto",
+            alternativaC: "Campanha",
+            alternativaD: "Sandbox",
+
+            perfilA: "competitivo",
+            perfilB: "explorador",
+            perfilC: "historia",
+            perfilD: "criativo"
+        },
+
+        {
+            pergunta: "Qual ambiente mais te atrai?",
+            alternativaA: "Mapas competitivos",
+            alternativaB: "Florestas e cavernas",
+            alternativaC: "Universos cinematográficos",
+            alternativaD: "Mundos construíveis",
+
+            perfilA: "competitivo",
+            perfilB: "explorador",
+            perfilC: "historia",
+            perfilD: "criativo"
+        }
+
+    ]
+
+    let numeroDaQuestaoAtual = 0
+
+    let pontos = {
+        competitivo: 0,
+        explorador: 0,
+        historia: 0,
+        criativo: 0
+    }
+
+    function onloadEsconder() {
+
+        document.getElementById("jogo").style.display = "none"
+
+        document.getElementById("btnTentarNovamente").style.display = "none"
+    }
+
+    function iniciarQuiz() {
+
+        document.getElementById("jogo").style.display = "flex"
+
+        document.getElementById("btnIniciarQuiz").style.display = "none"
+
+        document.getElementById("qtdQuestoes").innerHTML =
+            listaDeQuestoes.length
+
+        preencherHTMLcomQuestaoAtual(0)
+    }
+
+    function preencherHTMLcomQuestaoAtual(index) {
+
+        const questaoAtual = listaDeQuestoes[index]
+
+        document.getElementById("spanNumeroDaQuestaoAtual").innerHTML =
+            index + 1
+
+        document.getElementById("spanQuestaoExibida").innerHTML =
+            questaoAtual.pergunta
+
+        document.getElementById("labelOpcaoUm").innerHTML =
+            questaoAtual.alternativaA
+
+        document.getElementById("labelOpcaoDois").innerHTML =
+            questaoAtual.alternativaB
+
+        document.getElementById("labelOpcaoTres").innerHTML =
+            questaoAtual.alternativaC
+
+        document.getElementById("labelOpcaoQuatro").innerHTML =
+            questaoAtual.alternativaD
+    }
+
+    function avancar() {
+
+        const options = document.getElementsByName("option")
+
+        let respondeu = false
+
+        options.forEach((option) => {
+            if (option.checked) {
+                respondeu = true
+            }
+        })
+
+        if (!respondeu) {
+            alert("Escolha uma alternativa!")
+            return
+        }
+
+        salvarResposta()
+
+        desmarcarRadioButtons()
+
+        numeroDaQuestaoAtual++
+
+        if (numeroDaQuestaoAtual < listaDeQuestoes.length) {
+
+            preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
+
+        } else {
+
+            mostrarResultado()
+        }
+    }
+
+    function salvarResposta() {
+
+        const questaoAtual = listaDeQuestoes[numeroDaQuestaoAtual]
+
+        if (primeiraOpcao.checked) {
+            pontos[questaoAtual.perfilA]++
+        }
+
+        else if (segundaOpcao.checked) {
+            pontos[questaoAtual.perfilB]++
+        }
+
+        else if (terceiraOpcao.checked) {
+            pontos[questaoAtual.perfilC]++
+        }
+
+        else if (quartaOpcao.checked) {
+            pontos[questaoAtual.perfilD]++
+        }
+    }
+
+    function mostrarResultado() {
+
+        document.getElementById("opcoes").style.display = "none"
+
+        document.getElementById("botoes").style.display = "none"
+
+        document.getElementById("resultadoFinal").style.display = "block"
+
+        let maiorPerfil = ""
+        let maiorPonto = 0
+
+        for (let perfil in pontos) {
+
+            if (pontos[perfil] > maiorPonto) {
+
+                maiorPonto = pontos[perfil]
+                maiorPerfil = perfil
+            }
+        }
+
+        if (maiorPerfil == "competitivo") {
+
+            document.getElementById("tituloResultado").innerHTML =
+                "Perfil Competitivo"
+
+            document.getElementById("descricaoResultado").innerHTML =
+                "Você gosta de desafios, partidas online e competição intensa. Jogos como Valorant, Counter Strike 2 e League of Legends combinam muito com você."
+        }
+
+        else if (maiorPerfil == "explorador") {
+
+            document.getElementById("tituloResultado").innerHTML =
+                "Perfil Explorador"
+
+            document.getElementById("descricaoResultado").innerHTML =
+                "Você gosta de liberdade, exploração e aventuras. Jogos como Minecraft, Zelda e No Man's Sky são perfeitos para seu estilo."
+        }
+
+        else if (maiorPerfil == "historia") {
+
+            document.getElementById("tituloResultado").innerHTML =
+                "Perfil Narrativo"
+
+            document.getElementById("descricaoResultado").innerHTML =
+                "Você prefere experiências profundas e emocionantes. Jogos como The Last of Us, Red Dead Redemption 2 e God of War combinam com você."
+        }
+
+        else if (maiorPerfil == "criativo") {
+
+            document.getElementById("tituloResultado").innerHTML =
+                "Perfil Criativo"
+
+            document.getElementById("descricaoResultado").innerHTML =
+                "Você gosta de criar, construir e personalizar mundos. Jogos como The Sims, Roblox e Terraria são ideais para você."
+        }
+
+        document.getElementById("btnTentarNovamente").style.display =
+            "block"
+    }
+
+    function tentarNovamente() {
+        window.location.reload()
+    }
+
+    function desmarcarRadioButtons() {
+
+        const options = document.getElementsByName("option")
+
+        options.forEach((option) => {
+            option.checked = false
+        })
+    }
+
+    function irCadastro(){
+
+    window.location.href= "../HTML/cadastro.html"
+}
+</script>

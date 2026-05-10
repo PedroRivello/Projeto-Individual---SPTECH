@@ -1,0 +1,440 @@
+/* Não usar pure white or pure black: https://uxplanet.org/basicdesign-never-use-pure-black-in-typography-36138a3327a6 */
+/* The 4-point grid system: https://medium.com/@sainzkike/controlling-spacing-in-design-systems-multiple-spacing-9bf1afec87f */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+.header{
+    width: 100%;
+    height: 85px;
+    border-bottom: 2px solid #7b2cff;
+    background-color: rgba(0,0,0,0.4);
+    backdrop-filter: blur(12px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+.containerHeader{
+    width: 95%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* LOGO */
+
+.logoArea{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.logoArea img{
+    width: 70px;
+}
+
+.titulo{
+    color: white;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.titulo span{
+    color: #8a2cff;
+}
+
+/* NAVBAR */
+
+.navbar{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+}
+
+.navbar a{
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.navbar a:hover{
+    color: #b66cff;
+}
+
+/* BOTÃO HEADER */
+
+.btnHeader{
+    padding: 12px 24px;
+    border-radius: 14px;
+    background: linear-gradient(
+        135deg,
+        #8a2cff,
+        #b66cff
+    );
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.btnHeader:hover{
+    transform: translateY(-2px);
+    box-shadow:
+        0 0 20px rgba(138,44,255,0.5);
+}
+
+:root {
+    --roxo: #8a2cff;
+    --roxo-claro: #b66cff;
+    --roxo-escuro: #3d0066;
+    --fundo: #090018;
+    --card: #140028;
+    --card2: #1c0036;
+    --branco: #ffffff;
+    --cinza: #cfcfcf;
+    --verde: #29d67d;
+    --vermelho: #ff4d6d;
+    --amarelo: #ffc857;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #090018 0%, #120024 100%);
+    font-family: 'Poppins', sans-serif;
+    color: var(--branco);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+/* CONTAINER GERAL */
+#pontuacaoEJogo {
+    width: 100%;
+    max-width: 900px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* CARD */
+#jogo,
+#pontuacao {
+    background-color: rgba(20, 0, 40, 0.95);
+    border: 2px solid rgba(138, 44, 255, 0.5);
+    border-radius: 24px;
+    padding: 25px;
+
+    box-shadow:
+        0 0 25px rgba(138, 44, 255, 0.2),
+        0 0 60px rgba(138, 44, 255, 0.1);
+
+    backdrop-filter: blur(10px);
+}
+
+/* BOTÕES */
+button {
+    background: linear-gradient(90deg, var(--roxo), var(--roxo-claro));
+    border: none;
+    color: white;
+
+    padding: 14px 22px;
+    border-radius: 12px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 18px rgba(138, 44, 255, 0.6);
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* BOTÃO INICIAL */
+#btnIniciarQuiz {
+    width: 260px;
+    align-self: center;
+    font-size: 18px;
+    padding: 18px;
+}
+
+/* QUESTÃO */
+#perguntaDaQuestaoAtual {
+    margin: 20px 0;
+}
+
+#spanQuestaoExibida {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+/* TEXTO AUXILIAR */
+#infoQuestao,
+#infoAlternativas {
+    color: var(--cinza);
+    font-size: 15px;
+}
+
+/* OPÇÕES */
+#opcoes {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+/* ESCONDE RADIO */
+.radio {
+    display: none;
+}
+
+/* LABELS */
+.option {
+    display: block;
+    background-color: var(--card2);
+    border: 2px solid transparent;
+    border-radius: 14px;
+    padding: 18px;
+    cursor: pointer;
+    transition: 0.25s;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* HOVER */
+.option:hover {
+    border-color: var(--roxo);
+    transform: scale(1.01);
+    background-color: #250046;
+}
+
+/* RADIO SELECIONADO */
+.radio:checked + .option {
+    border-color: var(--roxo-claro);
+    background-color: #32005c;
+    box-shadow: 0 0 15px rgba(138, 44, 255, 0.4);
+}
+
+/* ÁREA DOS BOTÕES */
+#botoes {
+    margin-top: 25px;
+    display: flex;
+    gap: 12px;
+}
+
+/* PONTUAÇÃO */
+#pontuacao {
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+#pontuacao span {
+    font-size: 15px;
+}
+
+/* CORES DE RESPOSTA */
+.text-success-with-bg {
+    background-color: rgba(41, 214, 125, 0.2);
+    border: 2px solid var(--verde);
+    color: #7fffb8;
+}
+
+.text-warning-with-bg {
+    background-color: rgba(255, 200, 87, 0.2);
+    border: 2px solid var(--amarelo);
+    color: #ffe39e;
+}
+
+.text-danger-with-bg {
+    background-color: rgba(255, 77, 109, 0.2);
+    border: 2px solid var(--vermelho);
+    color: #ff9eb0;
+}
+
+.text-new-gray {
+    opacity: 0.7;
+}
+
+/* RESPONSIVO */
+@media screen and (max-width: 768px) {
+
+    body {
+        padding: 20px;
+    }
+
+    #spanQuestaoExibida {
+        font-size: 24px;
+    }
+
+    #botoes {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    #btnIniciarQuiz {
+        width: 100%;
+    }
+}
+/* TÍTULO */
+.tituloQuiz{
+    text-align: center;
+    font-size: 52px;
+    font-weight: 800;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+.tituloQuiz span{
+    color: #8a2cff;
+    text-shadow: 0 0 15px rgba(138,44,255,0.7);
+}
+
+/* CARD QUIZ */
+#jogo{
+    width: 100%;
+    max-width: 850px;
+    margin: auto;
+}
+
+/* TOPO */
+#topoQuiz{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.cabecalhoPergunta{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+#infoQuestao{
+
+    width: fit-content;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgba(138,44,255,0.15);
+    border: 1px solid rgba(138,44,255,0.4);
+    color: #c8a7ff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+#perguntaDaQuestaoAtual{
+    margin: 0;
+}
+
+#spanQuestaoExibida{
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+
+/* PERGUNTA */
+#perguntaDaQuestaoAtual{
+    margin-bottom: 30px;
+}
+
+#spanQuestaoExibida{
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+/* OPÇÕES */
+#opcoes{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* BOTÕES */
+#botoes{
+    display: flex;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+#botoes button{
+    width: 180px;
+    padding: 12px;
+    font-size: 14px;
+}
+
+/* RESULTADO */
+#resultadoFinal{
+    display: none;
+    margin-top: 35px;
+    padding: 25px;
+    border-radius: 18px;
+    background: rgba(138,44,255,0.15);
+    border: 1px solid rgba(138,44,255,0.4);
+}
+
+#tituloResultado{
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+#descricaoResultado{
+    font-size: 17px;
+    line-height: 1.5;
+}
+#btnCadastro{
+    margin-top: 25px;
+    width: 100%;
+    padding: 16px;
+    border-radius: 14px;
+    border: none;
+    background: linear-gradient(
+        90deg,
+        #8a2cff,
+        #b66cff
+    );
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#btnCadastro:hover{
+    transform: translateY(-2px);
+    box-shadow:
+        0 0 20px rgba(138,44,255,0.5);
+}

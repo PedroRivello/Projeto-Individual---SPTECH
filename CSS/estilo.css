@@ -5,6 +5,7 @@ body {
   padding: 0;
   font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: black;
+  padding-top: 100px;
 }
 
 :root {
@@ -71,14 +72,35 @@ body {
 
 
 .header {
-  height: var(--tamanho-header);
-  border-bottom: 2px solid rgb(128, 6, 228)
+    width: 100%;
+    height: 80px;
+    border-bottom: 2px solid #8a2be2;
+    background: rgba(5, 0, 20, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
 .header .container {
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
+    width: 90%;
+    height: 100%;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-area img {
+    width: 50px;
 }
 
 .header a {
@@ -91,12 +113,24 @@ body {
 }
 
 .navbar {
-  width: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  list-style: none;
-  color: rgb(128, 6, 228)
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: #a855f7;
 }
 
 .navbar .botton{
@@ -120,9 +154,14 @@ body {
 }
 
 .titulo {
-  color: #ffffff;
-  width: fit-content;
-  font-weight: 500;
+    color: white;
+    font-size: 30px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.titulo span {
+    color: #8a2be2;
 }
 
 .header h1 {
@@ -355,7 +394,7 @@ body {
   font-weight: 600;
   font-size: 18px;
   color: #fff;
-  background-color: #ED145B;
+  background-color: #8a2be2;
   width: 120px;
   height: 30px;
   align-self: center;
@@ -431,6 +470,21 @@ input {
   width: 120px;
   align-self: center;
   margin-top: 5px;
+}
+
+.btn-header {
+    padding: 12px 22px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #8a2be2, #6a00ff);
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s;
+    box-shadow: 0 10px 30px rgba(138,43,226,0.3);
+}
+
+.btn-header:hover {
+    transform: translateY(-2px);
 }
 
 .loading-div {
