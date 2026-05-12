@@ -361,6 +361,21 @@ body {
   color: rgb(255, 255, 255);
 }
 
+.card-cadastro{
+  position: absolute;
+  width: 300px;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 20px;
+  background: rgb(35, 0, 80);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.7);
+  color: rgb(255, 255, 255);
+  align-items: center;
+}
+.card-cadastro span{
+  color: rgb(255, 255, 255); ;
+}
+
 .formulario {
   display: flex;
   height: 90%;
