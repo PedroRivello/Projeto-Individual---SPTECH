@@ -5,7 +5,7 @@ body {
   padding: 0;
   font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: black;
-  padding-top: 100px;
+  padding-top: 60px;
 }
 
 :root {
@@ -18,9 +18,8 @@ body {
 
 .hero {
     background-image: url('../assets/imgs/fundoroxo.avif');
-
     background-position: center;
-    height: 70vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -162,6 +161,7 @@ body {
 
 .titulo span {
     color: #8a2be2;
+    text-shadow: 0 0 15px rgba(138,44,255,0.7);
 }
 
 .header h1 {
@@ -346,12 +346,26 @@ body {
   box-shadow: 0 20px 50px rgba(0,0,0,0.7);
   transition: 0.3s;
 }
+.card-login{
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 20px;
+  background: rgb(35, 0, 80);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.7);
+  color: rgb(255, 255, 255);
+  align-items: center;
+}
+.card-login span{
+  color: rgb(255, 255, 255);
+}
 
 .formulario {
   display: flex;
   height: 90%;
   width: 80%;
-  justify-content: space-around;
+  justify-content: center;
   flex-direction: column;
   align-items: center; 
   margin-left: 30px;
@@ -363,14 +377,14 @@ body {
 }
 
 .formulario input {
-  border: 2px solid #32b9cd;
+  border: 2px solid #362b2b;
   text-align: center;
   border-radius: 10px;
   margin: 0;
 }
 
 .formulario select {
-  border: 2px solid #32b9cd;
+  border: 2px solid #362b2b;
   background-color: white;
   color: gray;
   height: 36px;
@@ -452,7 +466,7 @@ body {
 
 input {
   margin-bottom: 10px;
-  border: 2px solid #32b9cd;
+  border: 2px solid #000000;
   padding: 10px;
   text-align: center;
   border-radius: 10px;
@@ -558,6 +572,7 @@ input {
 }
 span{
   color: rgb(128, 6, 228);
+  text-shadow: 0 0 15px rgba(138,44,255,0.7);
 }
 
 
