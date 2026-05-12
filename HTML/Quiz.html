@@ -94,6 +94,8 @@
 
             <div id="botoes">
 
+                <button onclick="voltar()" id="btnVolta"></button>
+
                 <button onclick="avancar()" id="btnProx">
                     Próxima
                 </button>
@@ -190,12 +192,12 @@
         preencherHTMLcomQuestaoAtual(0)
     }
 
-    function preencherHTMLcomQuestaoAtual(index) {
+    function preencherHTMLcomQuestaoAtual(i) {
 
-        const questaoAtual = listaDeQuestoes[index]
+        const questaoAtual = listaDeQuestoes[i]
 
         document.getElementById("spanNumeroDaQuestaoAtual").innerHTML =
-            index + 1
+            i + 1
 
         document.getElementById("spanQuestaoExibida").innerHTML =
             questaoAtual.pergunta
@@ -244,6 +246,10 @@
 
             mostrarResultado()
         }
+    }
+
+    function voltar() {
+        
     }
 
     function salvarResposta() {
@@ -302,7 +308,7 @@
                 "Perfil Explorador"
 
             document.getElementById("descricaoResultado").innerHTML =
-                "Você gosta de liberdade, exploração e aventuras. Jogos como Minecraft, Zelda e No Man's Sky são perfeitos para seu estilo."
+                "Você gosta de liberdade, exploração e aventuras. Jogos como Minecraft, Zelda e Stardew Valley são perfeitos para seu estilo."
         }
 
         else if (maiorPerfil == "historia") {
