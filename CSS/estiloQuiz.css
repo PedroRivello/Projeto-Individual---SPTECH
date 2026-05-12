@@ -398,7 +398,7 @@ button:disabled {
 }
 
 .botoes btnVolta{
-    
+    display: flex
 }
 
 /* RESULTADO */
