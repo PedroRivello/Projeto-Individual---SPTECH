@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --tamanho-header: 80px;
+  --tamanho-banner: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+  --tamanho-simulador: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+  --tamanho-login: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+  --tamanho-footer: 20px;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Barlow', sans-serif;
+    background: url('../assets/imgs/fundoroxo.avif') center/cover no-repeat;
+    min-height: 100vh;
+    color: white;
+}
+/* HEADER */
+
+.header{
+    width: 100%;
+    height: 80px;
+    border-bottom: 2px solid #8a2be2;
+    background: rgba(5, 0, 20, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.containerHeader{
+    width: 90%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  margin: auto;
+  padding-left: 0;
+}
+
+.container-bttn {
+  display: flex;
+  justify-content:space-between;
+  width: 80%;
+  align-items: center;
+}
+
+/* LOGO */
+
+.logo-area{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-area img{
+    width: 100px;
+}
+
+.titulo{
+    color: white;
+    font-size: 30px;
+    font-weight: 700;
+    margin: 0;
+    font-family: 'Barlow', sans-serif;
+}
+
+.titulo span{
+    color: #8a2be2;
+    text-shadow: 0 0 15px rgba(138,44,255,0.7);
+}
+
+/* NAVBAR */
+
+.navbar{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar a{
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 500;
+    transition: 0.3s;
+    font-family: 'Barlow', sans-serif;
+}
+.navbar a:hover {
+    color: #a855f7;
+}
+
+.navbar .botton{
+  margin-left: auto;
+}
+/* DASHBOARD */
+
+.dashboard{
+    width: 90%;
+    margin: auto;
+    padding-top: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dashboard h1{
+    font-size: 45px;
+    margin-bottom: 40px;
+}
+
+.dashboard h1 span{
+    color: #8a2be2;
+}
+
+/* CARDS */
+
+.cards-dashboard{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.card-info{
+    width: 230px;
+    height: 140px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    transition: 0.3s;
+}
+
+.card-info:hover{
+    transform: translateY(-5px);
+}
+
+.card-info h2{
+    font-size: 34px;
+    color: #c77dff;
+    margin-bottom: 10px;
+}
+
+.card-info p{
+    font-size: 16px;
+    color: #d9d9d9;
+    text-align: center;
+}
+
+/* GRAFICO */
+
+.grafico-area{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.grafico-card{
+    width: 500px;
+    padding: 10px;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.grafico-card h2{
+    text-align: center;
+    margin-bottom: 20px;
+    color: #c77dff;
+}
+
+#graficoPerfis{
+    max-width: 100%;
+    max-height: 450px;
+}
+.footer {
+  background-color: #0d0120;
+  height: 100px;
+  color: #fff;
+  display: flex;
+  font-size: 15px;
+  align-self: center;
+}
+
+.footer .container {
+  justify-content: center;
+  text-align: center;
+  margin-left: 600px;
+}
+
+
+.footer-right{
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btnHeader{
+    padding: 12px 22px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #8a2be2, #6a00ff);
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s;
+    box-shadow: 0 10px 30px rgba(138,43,226,0.3);
+    font-family: 'Barlow', sans-serif;
+}
+
+.btnHeader:hover{
+    transform: translateY(-2px);
+}

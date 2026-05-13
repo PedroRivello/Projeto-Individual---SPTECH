@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exemplo - Quiz</title>
-    <link rel="stylesheet" href="../CSS/estiloQuiz.css">
+    <link rel="stylesheet" href="./css/estiloQuiz.css">
 </head>
 
 
@@ -15,7 +15,7 @@
     <div class="containerHeader">
 
         <div class="logoArea">
-            <img src="../assets/imgs/Logo-gamesPerfilColor.png">
+            <img src="./assets/imgs/Logo-gamesPerfilColor.png">
 
             <h2 class="titulo">
                 Perfil <span>Games</span>
@@ -23,18 +23,19 @@
         </div>
         <ul class="navbar">
             <li>
-                <a href="../HTML/index.html">Inicial</a>
-            </li>
-            <li>
-                <a href="../HTML/simulador.html">Simulador</a>
+                <a href="./index.html">Inicial</a>
             </li>
             <li>|</li>
             <li>
-                <a href="../HTML/cadastro.html">Cadastro</a>
+                <a href="./simulador.html">Simulador</a>
+            </li>
+            <li>|</li>
+            <li>
+                <a href="./cadastro.html">Cadastro</a>
             </li>
         </ul>
 
-        <a href="../HTML/login.html" class="btnHeader">
+        <a href="./login.html" class="btnHeader">
             Entrar
         </a>
     </div>
@@ -93,9 +94,6 @@
             </div>
 
             <div id="botoes">
-
-                <button onclick="voltar()" id="btnVolta"></button>
-
                 <button onclick="avancar()" id="btnProx">
                     Próxima
                 </button>
@@ -113,9 +111,7 @@
                     CADASTRAR PARA ENCONTRAR JOGADORES COM PERFIL PARECIDO COM O SEU
                 </button>
             </div>
-
         </div>
-
     </div>
 </body>
 
@@ -348,6 +344,7 @@
 
     function irCadastro(){
 
-    window.location.href= "../HTML/cadastro.html"
+    window.location.href= "./cadastro.html"
 }
+
 </script>

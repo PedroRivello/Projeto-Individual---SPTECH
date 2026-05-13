@@ -10,18 +10,18 @@
 
   <script src="./js/sessao.js"></script>
 
-  <link rel="stylesheet" href="../CSS/estilo.css" />
-  <link rel="icon" href="../assets/icon/icons8-controle-64.png">
+  <link rel="stylesheet" href="./css/estilo.css" />
+  <link rel="icon" href="./assets/icon/icons8-controle-64.png">
   <link rel="preconnect" href="https://fonts.gstatic.com" />
 </head>
 
-<body onload="listar()">
+<body>
   <!--header inicio-->
   <div class="header">
     <div class="container">
 
         <div class="logo-area">
-            <img src="../assets/imgs/Logo-gamesPerfilColor.png">
+            <img src="./assets/imgs/Logo-gamesPerfilColor.png">
 
             <h2 class="titulo">
                 Perfil <span>Games</span>
@@ -29,16 +29,18 @@
         </div>
         <ul class="navbar">
             <li>
-                <a href="../HTML/index.html">Inicial</a>
+                <a href="./index.html">Inicial</a>
             </li>
+            <li class="pipe">|</li>
             <li>
-                <a href="../HTML/simulador.html">Simulador</a>
+                <a href="./simulador.html">Simulador</a>
             </li>
+            <li class="pipe">|</li>
             <li>
-                <a href="../HTML/cadastro.html">Cadastro</a>
+                <a href="./cadastro.html">Cadastro</a>
             </li>
         </ul>
-        <a href="../HTML/login.html" class="btn-header">
+        <a href="./login.html" class="btn-header">
             Entrar
         </a>
     </div>
@@ -77,7 +79,7 @@
           <button class="botao" onclick="cadastrar()">Cadastrar</button>
         </div>
         <div id="div_aguardar" class="loading-div">
-          <img src="../assets/circle-loading.gif" id="loading-gif" />
+          <img src="./assets/circle-loading.gif" id="loading-gif" />
         </div>
 
         <div id="div_erros_login"></div>
@@ -93,7 +95,7 @@
 
       <div class="footer-right">
         <div class="midiaSocial">
-          <img src="../assets/icon/discord.png" alt="Discord">
+          <img src="./assets/icon/discord.png" alt="Discord">
         </div>
       </div>
     </div>
@@ -117,7 +119,6 @@
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
-    var codigoVar = codigo_input.value;
     var idUsuarioVincular
 
     // Verificando se há algum campo em branco
@@ -125,8 +126,7 @@
       nomeVar == "" ||
       emailVar == "" ||
       senhaVar == "" ||
-      confirmacaoSenhaVar == "" ||
-      codigoVar == ""
+      confirmacaoSenhaVar == "" 
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
@@ -137,20 +137,6 @@
     } else {
       setInterval(sumirMensagem, 5000);
     }
-
-    // Verificando se o código de ativação é de algum usuário cadastrado
-    for (let i = 0; i < Usuarios_Cadastrados.length; i++) {
-      if (Usuarios_Cadastrados[i].codigo_ativacao == codigoVar) {
-        idUsuarioVincular = Usuarios_Cadastrados[i].id
-        console.log("Código de ativação válido.");
-        break;
-      } else {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
-        finalizarAguardar();
-      }
-    }
-
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
       method: "POST",
@@ -192,27 +178,6 @@
 
     return false;
   }
-
-  // Listando usuarios cadastrados 
-  function listar() {
-    fetch("/empresas/listar", {
-      method: "GET",
-    })
-      .then(function (resposta) {
-        resposta.json().then((usuarios) => {
-          usuarios.forEach((usuario) => {
-            Usuarios_Cadastrados.push(usuario);
-
-            console.log("Usuarios Cadastrados")
-            console.log(Usuarios_Cadastrados[0].codigo_ativacao)
-          });
-        });
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
-  }
-
   function sumirMensagem() {
     cardErro.style.display = "none";
   }
