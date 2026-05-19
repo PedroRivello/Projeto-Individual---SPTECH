@@ -12,35 +12,35 @@
 <body onload="onloadEsconder()">
     <div class="header">
 
-    <div class="containerHeader">
+        <div class="containerHeader">
 
-        <div class="logoArea">
-            <img src="./assets/imgs/Logo-gamesPerfilColor.png">
+            <div class="logoArea">
+                <img src="./assets/imgs/Logo-gamesPerfilColor.png">
 
-            <h2 class="titulo">
-                Perfil <span>Games</span>
-            </h2>
+                <h2 class="titulo">
+                    Perfil <span>Games</span>
+                </h2>
+            </div>
+            <ul class="navbar">
+                <li>
+                    <a href="./index.html">Inicial</a>
+                </li>
+                <li>|</li>
+                <li>
+                    <a href="./simulador.html">Simulador</a>
+                </li>
+                <li>|</li>
+                <li>
+                    <a href="./cadastro.html">Cadastro</a>
+                </li>
+            </ul>
+
+            <a href="./login.html" class="btnHeader">
+                Entrar
+            </a>
         </div>
-        <ul class="navbar">
-            <li>
-                <a href="./index.html">Inicial</a>
-            </li>
-            <li>|</li>
-            <li>
-                <a href="./simulador.html">Simulador</a>
-            </li>
-            <li>|</li>
-            <li>
-                <a href="./cadastro.html">Cadastro</a>
-            </li>
-        </ul>
 
-        <a href="./login.html" class="btnHeader">
-            Entrar
-        </a>
     </div>
-
-</div>
     <div id="pontuacaoEJogo">
 
         <h1 class="tituloQuiz">
@@ -245,7 +245,7 @@
     }
 
     function voltar() {
-        
+
     }
 
     function salvarResposta() {
@@ -325,8 +325,20 @@
                 "Você gosta de criar, construir e personalizar mundos. Jogos como The Sims, Roblox e Terraria são ideais para você."
         }
 
-        document.getElementById("btnTentarNovamente").style.display =
-            "block"
+        document.getElementById("btnTentarNovamente").style.display = "block";
+
+        const mapaPerfilId = {
+            competitivo: 1,
+            explorador: 2,
+            historia: 3,
+            criativo: 4
+        };
+
+        const idPerfil = mapaPerfilId[maiorPerfil];
+
+        // Guardar no sessionStorage para usar no cadastro
+        sessionStorage.setItem("perfilQuiz", maiorPerfil);
+        sessionStorage.setItem("idPerfilQuiz", idPerfil);
     }
 
     function tentarNovamente() {
@@ -342,9 +354,9 @@
         })
     }
 
-    function irCadastro(){
+    function irCadastro() {
 
-    window.location.href= "./cadastro.html"
-}
+        window.location.href = "./cadastro.html"
+    }
 
 </script>

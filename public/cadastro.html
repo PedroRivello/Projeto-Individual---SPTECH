@@ -20,31 +20,31 @@
   <div class="header">
     <div class="container">
 
-        <div class="logo-area">
-            <img src="./assets/imgs/Logo-gamesPerfilColor.png">
+      <div class="logo-area">
+        <img src="./assets/imgs/Logo-gamesPerfilColor.png">
 
-            <h2 class="titulo">
-                Perfil <span>Games</span>
-            </h2>
-        </div>
-        <ul class="navbar">
-            <li>
-                <a href="./index.html">Inicial</a>
-            </li>
-            <li class="pipe">|</li>
-            <li>
-                <a href="./simulador.html">Simulador</a>
-            </li>
-            <li class="pipe">|</li>
-            <li>
-                <a href="./cadastro.html">Cadastro</a>
-            </li>
-        </ul>
-        <a href="./login.html" class="btn-header">
-            Entrar
-        </a>
+        <h2 class="titulo">
+          Perfil <span>Games</span>
+        </h2>
+      </div>
+      <ul class="navbar">
+        <li>
+          <a href="./index.html">Inicial</a>
+        </li>
+        <li class="pipe">|</li>
+        <li>
+          <a href="./simulador.html">Simulador</a>
+        </li>
+        <li class="pipe">|</li>
+        <li>
+          <a href="./cadastro.html">Cadastro</a>
+        </li>
+      </ul>
+      <a href="./login.html" class="btn-header">
+        Entrar
+      </a>
     </div>
-</div>
+  </div>
   <!--header fim-->
 
   <div class="login">
@@ -107,16 +107,14 @@
 
 <script>
 
-  // Array para armazenar os usuarios cadastradas para validação de código de ativação 
   let Usuarios_Cadastrados = [];
 
   function cadastrar() {
 
-    // Agora vá para o método fetch logo abaixo
-    var nomeVar = nome_input.value;
-    var emailVar = email_input.value;
-    var senhaVar = senha_input.value;
-    var confirmacaoSenhaVar = confirmacao_senha_input.value;
+    var nomeVar = document.getElementById("nome_input").value;
+    var emailVar = document.getElementById("email_input").value;
+    var senhaVar = document.getElementById("senha_input").value;
+    var confirmacaoSenhaVar = document.getElementById("confirmacao_senha_input").value;
     var idUsuarioVincular
 
     // Verificando se há algum campo em branco
@@ -124,7 +122,7 @@
       nomeVar == "" ||
       emailVar == "" ||
       senhaVar == "" ||
-      confirmacaoSenhaVar == "" 
+      confirmacaoSenhaVar == ""
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
@@ -142,11 +140,10 @@
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        nomeServer: nomeVar,
-        emailServer: emailVar,
-        senhaServer: senhaVar,
-        idUsuarioServer: idUsuarioVincular
+        nomeServer: document.getElementById("nome_input").value,
+        emailServer: document.getElementById("email_input").value,
+        senhaServer: document.getElementById("senha_input").value,
+        fkPerfilResultadoServer: sessionStorage.getItem("idPerfilQuiz")
       }),
     })
       .then(function (resposta) {

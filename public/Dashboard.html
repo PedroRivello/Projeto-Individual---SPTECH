@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Dashboard</title>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <link rel="stylesheet" href="./css/estiloDash.css">
@@ -12,7 +14,17 @@
 
 <body>
 
-    <!-- HEADER -->
+    <script>
+
+        if (sessionStorage.ID_USUARIO == undefined) {
+
+            alert("Faça login para acessar a dashboard");
+
+            window.location = "./login.html";
+
+        }
+
+    </script>
 
     <div class="header">
 
@@ -30,14 +42,15 @@
 
             <ul class="navbar">
 
-                <li><a href="../index.html">Inicial</a></li>
+                <li><a href="./index.html">Inicial</a></li>
+
                 <li class="pipe">|</li>
 
                 <li><a href="./Quiz.html">Quiz</a></li>
+
                 <li class="pipe">|</li>
 
                 <li><a href="./dashboard.html">Dashboard</a></li>
-
 
             </ul>
 
@@ -45,7 +58,6 @@
 
     </div>
 
-    <!-- DASHBOARD -->
 
     <div class="dashboard">
 
@@ -53,7 +65,7 @@
 
             <div class="card-info">
 
-                <h2>120</h2>
+                <h2 id="usuariosPerfil">0</h2>
 
                 <p>Usuários com o seu perfil</p>
 
@@ -61,7 +73,7 @@
 
             <div class="card-info">
 
-                <h2>340</h2>
+                <h2 id="quizRespondidos">0</h2>
 
                 <p>Quizzes respondidos</p>
 
@@ -69,15 +81,15 @@
 
             <div class="card-info">
 
-                <h2>Competitivo</h2>
+                <h2 id="perfilEscolhido">-</h2>
 
-                <p>Perfil escolhido</p>
+                <p>Perfil mais escolhido</p>
 
             </div>
 
             <div class="card-info">
 
-                <h2>Valorant</h2>
+                <h2 id="jogoRecomendado">-</h2>
 
                 <p>Jogo mais recomendado</p>
 
@@ -86,57 +98,187 @@
         </div>
 
         <div class="grafico-area">
+
             <div class="grafico-card">
+
                 <h2>Perfis Gamers</h2>
+
                 <canvas id="graficoPerfis"></canvas>
 
             </div>
+
         </div>
+
     </div>
 
-    <script>
+</body>
+
+</html>
+
+<script>
+
+    let graficoPizza;
+
+    window.onload = function () {
+
+        buscarDadosDashboard();
+
+    }
+
+
+    function buscarDadosDashboard() {
+
+        fetch("/quiz/dashboard")
+
+            .then(function (resposta) {
+
+                if (resposta.ok) {
+
+                    resposta.json().then(function (dados) {
+
+                        console.log("DADOS DA DASH:");
+                        console.log(dados);
+
+                        carregarCards(dados);
+
+                        plotarGrafico(dados);
+
+                    });
+
+                } else {
+
+                    console.log("Erro ao buscar dados");
+
+                }
+
+            })
+
+            .catch(function (erro) {
+
+                console.log(erro);
+
+            });
+
+    }
+
+    function carregarCards(dados) {
+
+        let totalQuiz = 0;
+        let perfilMaisEscolhido = "";
+        let maiorQtd = 0;
+        let jogoMaisRecomendado = "";
+
+        // Perfil do usuário logado (salvo no sessionStorage pelo quiz)
+
+        let perfilDoUsuario = sessionStorage.getItem("perfilQuiz");
+        let qtdMeuPerfil = 0;
+
+        for (let i = 0; i < dados.length; i++) {
+
+            let qtd = Number(dados[i].quantidade);
+            totalQuiz += qtd;
+
+            // Perfil mais popular geral
+
+            if (qtd > maiorQtd) {
+                maiorQtd = qtd;
+                perfilMaisEscolhido = dados[i].nomePerfil;
+            }
+
+            // Quantidade de usuários com o MESMO perfil do usuário logado
+
+            if (dados[i].nomePerfil === perfilDoUsuario) {
+                qtdMeuPerfil = qtd;
+            }
+        }
+
+        const mapaJogos = {
+            competitivo: "Valorant",
+            explorador: "Minecraft",
+            historia: "God of War",
+            criativo: "Roblox"
+        };
+
+        jogoMaisRecomendado = mapaJogos[perfilMaisEscolhido] || "-";
+
+        document.getElementById("usuariosPerfil").innerHTML = qtdMeuPerfil;
+        document.getElementById("quizRespondidos").innerHTML = totalQuiz;
+        document.getElementById("perfilEscolhido").innerHTML = perfilMaisEscolhido;
+        document.getElementById("jogoRecomendado").innerHTML = jogoMaisRecomendado;
+    }
+
+    function plotarGrafico(dados) {
+
+        let labels = [];
+
+        let valores = [];
+
+        for (let i = 0; i < dados.length; i++) {
+
+            labels.push(dados[i].nomePerfil);
+
+            valores.push(Number(dados[i].quantidade));
+
+        }
 
         const ctx = document.getElementById('graficoPerfis');
 
-        new Chart(ctx, {
+        graficoPizza = new Chart(ctx, {
+
             type: 'pie',
+
             data: {
-                labels: [
-                    'Competitivo',
-                    'História',
-                    'Casual',
-                    'Multiplayer',
-                    'RPG'
-                ],
+
+                labels: labels,
+
                 datasets: [{
-                    data: [40, 25, 15, 12, 8],
+
+                    data: valores,
+
                     backgroundColor: [
+
                         '#e20606',
                         '#f5e507',
                         '#0964ec',
                         '#5a189a',
                         '#168a07'
+
                     ],
+
                     borderWidth: 2
+
                 }]
+
             },
+
             options: {
+
                 responsive: true,
+
                 plugins: {
+
                     legend: {
+
                         labels: {
+
                             color: 'white',
+
                             font: {
+
                                 size: 14
+
                             }
+
                         }
+
                     }
+
                 }
+
             }
+
         });
 
-    </script>
+    }
 
-</body>
-
-</html>
+</script>
