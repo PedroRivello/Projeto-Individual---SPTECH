@@ -237,3 +237,36 @@ body{
 .btnHeader:hover{
     transform: translateY(-2px);
 }
+
+/* AREA LOGIN/LOGADO - HEADER */
+
+#areaLogado {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nome-usuario {
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: 'Barlow', sans-serif;
+}
+
+.btn-sair {
+    padding: 12px 22px;
+    border-radius: 12px;
+    background: transparent;
+    border: 2px solid #8a2be2;
+    color: white;
+    font-weight: 700;
+    font-family: 'Barlow', sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-sair:hover {
+    background: linear-gradient(135deg, #8a2be2, #6a00ff);
+    transform: translateY(-2px);
+}

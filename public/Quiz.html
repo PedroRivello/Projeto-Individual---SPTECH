@@ -11,35 +11,35 @@
 
 <body onload="onloadEsconder()">
     <div class="header">
-
         <div class="containerHeader">
 
             <div class="logoArea">
                 <img src="./assets/imgs/Logo-gamesPerfilColor.png">
-
-                <h2 class="titulo">
-                    Perfil <span>Games</span>
-                </h2>
+                <h2 class="titulo">Perfil <span>Games</span></h2>
             </div>
+
             <ul class="navbar">
-                <li>
-                    <a href="./index.html">Inicial</a>
-                </li>
+                <li><a href="./index.html">Inicial</a></li>
                 <li>|</li>
-                <li>
-                    <a href="./simulador.html">Simulador</a>
-                </li>
+                <li><a href="./Quiz.html">Quiz</a></li>
                 <li>|</li>
-                <li>
-                    <a href="./cadastro.html">Cadastro</a>
+                <li id="navDashboard" style="display:none">
+                    <a href="./Dashboard.html">Dashboard</a>
                 </li>
+                <li id="navDashboardPipe" style="display:none">|</li>
+                <li><a href="./simulador.html">Simulador</a></li>
             </ul>
 
-            <a href="./login.html" class="btnHeader">
-                Entrar
-            </a>
-        </div>
+            <!-- Botão muda conforme login -->
+            <div id="areaLogin">
+                <b><a href="./login.html" id="btnEntrar" class="btnHeader">Entrar</a></b>
+                <div id="areaLogado" style="display:none">
+                    <span id="nomeUsuario" class="nome-usuario"></span>
+                    <button onclick="sair()" class="btn-sair">Sair</button>
+                </div>
+            </div>
 
+        </div>
     </div>
     <div id="pontuacaoEJogo">
 
@@ -117,6 +117,27 @@
 
 </html>
 <script>
+
+    window.addEventListener("DOMContentLoaded", function () {
+        verificarSessao();
+    });
+
+    function verificarSessao() {
+        if (sessionStorage.ID_USUARIO) {
+            document.getElementById("btnEntrar").style.display = "none";
+            document.getElementById("areaLogado").style.display = "flex";
+            document.getElementById("navDashboard").style.display = "list-item";
+            document.getElementById("navDashboardPipe").style.display = "list-item";
+            document.getElementById("nomeUsuario").innerHTML = "Olá, " + sessionStorage.NOME_USUARIO;
+            document.getElementById("btnCadastro").style.display = "none";
+        }
+    }
+
+    function sair() {
+        sessionStorage.clear();
+        window.location.href = "./index.html";
+    }
+
     const listaDeQuestoes = [
 
         {

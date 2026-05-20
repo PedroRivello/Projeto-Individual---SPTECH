@@ -15,33 +15,39 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
 </head>
 
+
+
 <body>
  <div class="header">
     <div class="containerHeader">
 
         <div class="logo-area">
             <img src="./assets/imgs/Logo-gamesPerfilColor.png">
-
-            <h2 class="titulo">
-                Perfil <span>Games</span>
-            </h2>
+            <h2 class="titulo">Perfil <span>Games</span></h2>
         </div>
+
         <ul class="navbar">
-            <li>
-                <a href="./index.html">Inicial</a>
-            </li>
+            <li><a href="./index.html">Inicial</a></li>
             <li class="pipe">|</li>
-            <li>
-                <a href="./simulador.html">Simulador</a>
-            </li>
+            <li><a href="./Quiz.html">Quiz</a></li>
             <li class="pipe">|</li>
-            <li>
-                <a href="./cadastro.html">Cadastro</a>
+            <!-- Só aparece quando logado -->
+            <li id="navDashboard" style="display:none">
+                <a href="./Dashboard.html">Dashboard</a>
             </li>
+            <li id="navDashboardPipe" class="pipe" style="display:none">|</li>
+            <li><a href="./simulador.html">Simulador</a></li>
         </ul>
-        <a href="./login.html" class="btn-header">
-            Entrar
-        </a>
+
+        <!-- Botão muda conforme o estado de login -->
+        <div id="areaLogin">
+            <a href="./login.html" id="btnEntrar" class="btn-header">Entrar</a>
+            <div id="areaLogado" style="display:none">
+                <span id="nomeUsuario" class="nome-usuario"></span>
+                <button onclick="sair()" class="btn-header btn-sair">Sair</button>
+            </div>
+        </div>
+
     </div>
 </div>
   <div class="boxes">
@@ -113,6 +119,37 @@
       </div>
     </div>
   </div>
+
+
+  <script>
+    // Ao carregar a página, verifica se está logado
+    window.addEventListener("DOMContentLoaded", function () {
+        verificarSessao();
+    });
+
+    function verificarSessao() {
+        if (sessionStorage.ID_USUARIO) {
+            // Logado: mostra nome, botão sair e link dashboard
+            document.getElementById("btnEntrar").style.display       = "none";
+            document.getElementById("areaLogado").style.display      = "flex";
+            document.getElementById("navDashboard").style.display    = "list-item";
+            document.getElementById("navDashboardPipe").style.display = "list-item";
+            document.getElementById("nomeUsuario").innerHTML         =
+                "Olá, " + sessionStorage.NOME_USUARIO;
+        } else {
+            // Deslogado: mostra só o botão entrar
+            document.getElementById("btnEntrar").style.display       = "inline-block";
+            document.getElementById("areaLogado").style.display      = "none";
+            document.getElementById("navDashboard").style.display    = "none";
+            document.getElementById("navDashboardPipe").style.display = "none";
+        }
+    }
+
+    function sair() {
+        sessionStorage.clear();
+        window.location.href = "./index.html";
+    }
+</script>
 
 </body>
 
