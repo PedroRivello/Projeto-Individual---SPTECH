@@ -6,57 +6,56 @@
 comandos para mysql server
 */
 
-CREATE DATABASE aquatech;
-
-USE aquatech;
-
-CREATE TABLE empresa (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	razao_social VARCHAR(50),
-	cnpj CHAR(14),
-	codigo_ativacao VARCHAR(50)
-);
+CREATE DATABASE ProjetoInd;
+USE ProjetoInd;
 
 CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+	idUsuario INT PRIMARY KEY AUTO_INCREMENT,
+	nome VARCHAR(100),
+	email VARCHAR(100) UNIQUE,
+	senha VARCHAR(100),
+    dataCadastro DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE aviso (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
-	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
+
+CREATE TABLE perfilGamer (
+	idPerfil INT PRIMARY KEY AUTO_INCREMENT,
+	nomePerfil VARCHAR(50),
+	descricao VARCHAR(200)
 );
 
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(300),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+CREATE TABLE resultadoQuiz (
+	idResultado INT PRIMARY KEY AUTO_INCREMENT,
+	fkPerfilResultado INT,
+	dataResposta DATETIME DEFAULT CURRENT_TIMESTAMP,
+	CONSTRAINT fkResultadoPerfil
+	FOREIGN KEY (fkPerfilResultado)
+	REFERENCES perfilGamer(idPerfil)
 );
 
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
+ALTER TABLE resultadoQuiz
+ADD COLUMN fkUsuario INT,
+ADD CONSTRAINT fkResultadoUsuario
+FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario);
+    
+    
+INSERT INTO perfilGamer (nomePerfil, descricao) VALUES
+('competitivo', 'Jogadores competitivos'),
+('explorador', 'Jogadores exploradores'),
+('historia', 'Jogadores narrativos'),
+('criativo', 'Jogadores criativos');
 
-create table medida (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	dht11_umidade DECIMAL,
-	dht11_temperatura DECIMAL,
-	luminosidade DECIMAL,
-	lm35_temperatura DECIMAL,
-	chave TINYINT,
-	momento DATETIME,
-	fk_aquario INT,
-	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
-);
+SELECT * FROM resultadoQuiz;
+select * from perfilGamer;
+SELECT * FROM usuario;
 
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 1', 'ED145B');
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 2', 'A1B2C3');
-insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);
-insert into aquario (descricao, fk_empresa) values ('Aquário de Peixe-dourado', 2);
+SELECT usuario.nome,
+    perfilGamer.nomePerfil AS Nome_Player,
+    perfilGamer.descricao AS Descricao_perfil,
+    usuario.dataCadastro AS dataQuiz
+FROM resultadoQuiz
+JOIN usuario
+    ON resultadoQuiz.fkUsuario = usuario.idUsuario
+JOIN perfilGamer
+    ON resultadoQuiz.fkPerfilResultado = perfilGamer.idPerfil
+ORDER BY usuario.dataCadastro DESC;
