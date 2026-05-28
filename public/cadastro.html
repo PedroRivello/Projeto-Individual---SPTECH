@@ -130,7 +130,29 @@
 
       finalizarAguardar();
       return false;
-    } else {
+    }
+    if (!emailVar.includes("@") || !emailVar.includes(".")) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = "(Email precisa de @ e .)";
+
+      finalizarAguardar();
+      return false;
+    }
+    if (senhaVar.length < 6) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = "(Senha Fraca! necessita ter mais de 6 caracteres)";
+
+      finalizarAguardar();
+      return false;
+    }
+    if (senhaVar != confirmacaoSenhaVar) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = "(Confirmação de senha errada)";
+
+      finalizarAguardar();
+      return false;
+    }
+    else {
       setInterval(sumirMensagem, 5000);
     }
     // Enviando o valor da nova input
