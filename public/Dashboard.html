@@ -27,35 +27,34 @@
     </script>
 
     <div class="header">
-
         <div class="containerHeader">
 
             <div class="logo-area">
-
                 <img src="./assets/imgs/Logo-gamesPerfilColor.png">
-
-                <h2 class="titulo">
-                    Perfil <span>Games</span>
-                </h2>
-
+                <h2 class="titulo">Perfil <span>Games</span></h2>
             </div>
 
             <ul class="navbar">
-
                 <li><a href="./index.html">Inicial</a></li>
-
                 <li class="pipe">|</li>
-
                 <li><a href="./Quiz.html">Quiz</a></li>
-
                 <li class="pipe">|</li>
-
                 <li><a href="./dashboard.html">Dashboard</a></li>
-
+                </li>
+                <li class="pipe">|</li>
+                <a href="./Sobre.html">Perfil Games</a>
             </ul>
 
-        </div>
+            <!-- Área do usuário logado -->
+            <div id="areaLogado">
+                <div class="usuario-info">
+                    <span class="nome-usuario" id="nomeUsuario"></span>
+                    <span class="perfil-usuario" id="perfilUsuario"></span>
+                </div>
+                <button onclick="sair()" class="btn-sair">Sair</button>
+            </div>
 
+        </div>
     </div>
 
 
@@ -205,6 +204,23 @@
         document.getElementById("quizRespondidos").innerHTML = totalQuiz;
         document.getElementById("perfilEscolhido").innerHTML = perfilMaisEscolhido;
         document.getElementById("jogoRecomendado").innerHTML = jogoMaisRecomendado;
+    }
+
+    window.onload = function () {
+
+        // Preencher nome e perfil no header
+        document.getElementById("nomeUsuario").innerHTML =
+            "Olá, " + sessionStorage.getItem("NOME_USUARIO");
+
+        document.getElementById("perfilUsuario").innerHTML =
+            "🎮 " + (sessionStorage.getItem("perfilQuiz") || "sem perfil");
+
+        buscarDadosDashboard();
+    }
+
+    function sair() {
+        sessionStorage.clear();
+        window.location.href = "./index.html";
     }
 
     function plotarGrafico(dados) {

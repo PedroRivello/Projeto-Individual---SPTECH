@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil Games | Sobre Nós</title>
+  <link rel="stylesheet" href="./css/estiloSobre.css">
+  <link rel="icon" href="./assets/icon/icons8-controle-64.png">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="containerHeader">
+      <div class="logo-area">
+        <img src="./assets/imgs/Logo-gamesPerfilColor.png" alt="Logo">
+        <h2 class="titulo">Perfil <span>Games</span></h2>
+      </div>
+
+      <ul class="navbar">
+        <li><a href="./index.html">Inicial</a></li>
+        <li class="pipe">|</li>
+        <li><a href="./Quiz.html">Quiz</a></li>
+        <li id="navDashboardPipe" class="pipe" style="display:none">|</li>
+        <li id="navDashboard" style="display:none"><a href="./Dashboard.html">Dashboard</a></li>
+        <li class="pipe">|</li>
+        <li><a href="./Sobre.html">Perfil Games</a></li>
+      </ul>
+
+      <div id="areaLogin">
+        <a href="./login.html" id="btnEntrar" class="btn-header">Entrar</a>
+        <div id="areaLogado" style="display:none">
+          <div class="usuario-info">
+            <span class="nome-usuario" id="nomeUsuario"></span>
+            <span class="perfil-usuario" id="perfilUsuario"></span>
+          </div>
+          <button onclick="sair()" class="btn-sair">Sair</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BANNER -->
+  <div class="banner-sobre">
+    <h1>SOBRE O<br><span>PERFIL GAMES</span></h1>
+    <p>A história por trás do projeto que conecta jogadores aos games feitos para eles.</p>
+  </div>
+
+  <!-- CONTEÚDO -->
+  <div class="sobre-conteudo">
+
+    <!-- INTRO -->
+    <div class="bloco-intro reveal">
+      <p>
+        O Perfil Games nasceu com a ideia de ajudar jogadores a descobrirem novos jogos de acordo com seu estilo e
+        preferências.
+        Através de um quiz interativo, buscamos criar uma experiência divertida e personalizada para cada usuário,
+        conectando pessoas ao universo gamer de forma simples e intuitiva.
+      </p>
+    </div>
+
+    <div class="divisor"></div>
+
+    <!-- MISSÃO -->
+    <div class="bloco-secao reveal">
+      <div class="label-secao">Propósito</div>
+      <h2>Nossa <span>Missão</span></h2>
+      <p>
+        Nossa missão é aproximar jogadores de experiências que realmente combinem com seus gostos.
+        Queremos facilitar a descoberta de novos jogos e mostrar como o mundo gamer possui diferentes estilos,
+        histórias e comunidades para todos os tipos de jogadores.
+      </p>
+    </div>
+
+    <div class="divisor"></div>
+
+    <!-- POR QUE CRIAMOS -->
+    <div class="bloco-secao reveal">
+      <div class="label-secao">Motivação</div>
+      <h2>Por que <span>criamos</span> esse projeto?</h2>
+      <p>
+        Atualmente, o universo dos games cresce cada vez mais e existem milhares de opções disponíveis.
+        Muitas pessoas acabam não conhecendo jogos que poderiam gostar simplesmente por não saberem por onde começar.
+        O Perfil Games foi desenvolvido para ajudar nessa descoberta, utilizando perguntas rápidas para identificar
+        o perfil de cada jogador e recomendar experiências compatíveis.
+      </p>
+    </div>
+
+    <div class="divisor"></div>
+
+    <!-- CARDS GÊNEROS -->
+    <div class="bloco-secao reveal">
+      <div class="label-secao">Universo Gamer</div>
+      <h2>Explore os <span>Gêneros</span></h2>
+    </div>
+    <div class="generos-grid reveal">
+      <div class="genero-card fps">
+        <div class="genero-emoji">🎯</div>
+        <h3>FPS</h3>
+        <p>Tiros em primeira pessoa, reflexos rápidos e competição intensa.</p>
+        <span class="genero-tag">Valorant · CS2</span>
+      </div>
+      <div class="genero-card rpg">
+        <div class="genero-emoji">⚔️</div>
+        <h3>RPG</h3>
+        <p>Mundos abertos, evolução de personagem e histórias épicas.</p>
+        <span class="genero-tag">Zelda · Stardew</span>
+      </div>
+      <div class="genero-card acao">
+        <div class="genero-emoji">🪓</div>
+        <h3>AÇÃO</h3>
+        <p>Combate visceral, narrativas cinematográficas e adrenalina pura.</p>
+        <span class="genero-tag">God of War · TLoU</span>
+      </div>
+      <div class="genero-card simulacao">
+        <div class="genero-emoji">🏗️</div>
+        <h3>SIMULAÇÃO</h3>
+        <p>Criar, construir e personalizar mundos sem limites para a imaginação.</p>
+        <span class="genero-tag">Minecraft · Roblox</span>
+      </div>
+    </div>
+
+    <div class="divisor"></div>
+
+    <!-- FECHO -->
+    <div class="bloco-fecho reveal">
+      <p>
+        Mais do que apenas recomendar jogos, queremos criar uma experiência envolvente para quem ama videogames.
+        O Perfil Games representa a paixão pelo universo gamer e a vontade de conectar pessoas
+        aos jogos que podem marcar suas vidas.
+      </p>
+      <a href="./Quiz.html" class="btn-quiz-sobre">🎮 Fazer o Quiz Agora</a>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="container">
+      <h4>2026 - Pedro Rivello 1SIS. SPTech &copy;</h4>
+      <span class="version">v1.0.0</span>
+    </div>
+    <div class="footer-right">
+      <div class="midiaSocial">
+        <img src="./assets/icon/discord.png" alt="Discord">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // SESSÃO - HEADER
+    window.addEventListener("DOMContentLoaded", function () {
+      verificarSessao();
+    });
+
+    function verificarSessao() {
+      if (sessionStorage.ID_USUARIO) {
+        document.getElementById("btnEntrar").style.display = "none";
+        document.getElementById("areaLogado").style.display = "flex";
+        document.getElementById("navDashboard").style.display = "list-item";
+        document.getElementById("navDashboardPipe").style.display = "list-item";
+        document.getElementById("nomeUsuario").innerHTML = "Olá, " + sessionStorage.getItem("NOME_USUARIO");
+        document.getElementById("perfilUsuario").innerHTML = "🎮 " + (sessionStorage.getItem("perfilQuiz") || "sem perfil");
+      }
+    }
+
+    function sair() {
+      sessionStorage.clear();
+      window.location.href = "./index.html";
+    }
+
+    // ANIMAÇÕES
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 100);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+
+</html>

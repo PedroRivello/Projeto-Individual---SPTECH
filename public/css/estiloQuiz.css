@@ -398,14 +398,14 @@ button:disabled {
     display: flex
 }
 
-/* RESULTADO */
+
 #resultadoFinal{
     display: none;
-    margin-top: 35px;
     padding: 25px;
     border-radius: 18px;
     background: rgba(138,44,255,0.15);
     border: 1px solid rgba(138,44,255,0.4);
+    margin-bottom: 15px;
 }
 
 #tituloResultado{

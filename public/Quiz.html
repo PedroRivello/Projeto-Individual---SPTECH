@@ -27,7 +27,7 @@
                     <a href="./Dashboard.html">Dashboard</a>
                 </li>
                 <li id="navDashboardPipe" style="display:none">|</li>
-                <li><a href="./simulador.html">Perfil Games</a></li>
+                <li><a href="./Sobre.html">Perfil Games</a></li>
             </ul>
 
             <!-- Botão muda conforme login -->
@@ -177,7 +177,33 @@
             perfilB: "explorador",
             perfilC: "historia",
             perfilD: "criativo"
-        }
+        },
+
+        {
+            pergunta: "O que mais te motiva a continuar jogando?",
+            alternativaA: "Subir de rank e melhorar habilidades",
+            alternativaB: "Descobrir novas áreas e missões",
+            alternativaC: "Ver o final da história",
+            alternativaD: "Relaxar e passar o tempo",
+
+            perfilA: "competitivo",
+            perfilB: "explorador",
+            perfilC: "historia",
+            perfilD: "criativo"
+        },
+
+        {
+            pergunta: "Como você prefere jogar?",
+            alternativaA: "Com amigos em partidas online",
+            alternativaB: "Sozinho, aproveitando a história",
+            alternativaC: "Explorando livremente o mundo",
+            alternativaD: "Sem pressão, apenas me divertindo",
+
+            perfilA: "competitivo",
+            perfilB: "historia",
+            perfilC: "explorador",
+            perfilD: "criativo"
+        },
 
     ]
 
@@ -293,10 +319,10 @@
     function mostrarResultado() {
 
         document.getElementById("opcoes").style.display = "none"
-
         document.getElementById("botoes").style.display = "none"
-
         document.getElementById("resultadoFinal").style.display = "block"
+        document.getElementById("infoQuestao").style.display = "none"
+        document.getElementById("perguntaDaQuestaoAtual").style.display = "none"
 
         let maiorPerfil = ""
         let maiorPonto = 0

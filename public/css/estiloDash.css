@@ -246,11 +246,27 @@ body{
     gap: 10px;
 }
 
+.usuario-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+}
+
 .nome-usuario {
     color: white;
     font-size: 15px;
-    font-weight: 500;
+    font-weight: 600;
     font-family: 'Barlow', sans-serif;
+}
+
+.perfil-usuario {
+    color: #c77dff;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: 'Barlow', sans-serif;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
 }
 
 .btn-sair {
