@@ -289,7 +289,7 @@ body {
 .footer .container {
   justify-content: center;
   text-align: center;
-  margin-left: 850px;
+  margin-left: 550px;
 }
 
 .footer .container .version {
@@ -319,7 +319,7 @@ body {
   transform: scale(1.1);
 }   
 
-/* LOGIN */
+
 
 .login {
   height: var(--tamanho-login);
@@ -477,7 +477,6 @@ body {
   display: none
 }
 
-/* FORMULARIO */
 
 .alerta_erro{
   display: flex;
@@ -579,7 +578,6 @@ input {
   height: var(--tamanho-simulador);
 }
 
-/* ALERTA */
 
 #alerta {
   position: absolute;
@@ -748,8 +746,6 @@ span{
 .pipe{
   color: #ffffff;
 }
-
-/* AREA LOGIN/LOGADO - HEADER */
 
 #areaLogado {
     display: flex;

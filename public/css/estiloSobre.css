@@ -157,13 +157,10 @@ body {
   border-radius: 50%;
   background: #c77dff;
   box-shadow: 0 0 8px #c77dff;
-  animation: pulse 2s infinite;
+
 }
 
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.3; }
-}
+
 
 .banner-sobre h1 {
   font-family: 'Barlow', sans-serif;
@@ -213,7 +210,6 @@ body {
   margin: 0 auto;
 }
 
-/* ── DIVISOR ── */
 
 .divisor {
   width: 100%;
@@ -222,7 +218,6 @@ body {
   margin: 60px 0;
 }
 
-/* ── BLOCOS MISSÃO / POR QUE ── */
 
 .bloco-secao {
   margin-bottom: 20px;
@@ -256,7 +251,6 @@ body {
   max-width: 700px;
 }
 
-/* ── LISTA FEATURES ── */
 
 .lista-features {
   display: grid;
@@ -295,7 +289,6 @@ body {
   margin: 0;
 }
 
-/* ── CARDS GÊNEROS ── */
 
 .generos-grid {
   display: grid;
@@ -393,7 +386,6 @@ body {
   letter-spacing: 1px;
 }
 
-/* ── FECHO ── */
 
 .bloco-fecho {
   text-align: center;
@@ -429,8 +421,6 @@ body {
   transform: translateY(-3px);
   box-shadow: 0 15px 40px rgba(138, 43, 226, 0.55);
 }
-
-/* ── FOOTER ── */
 
 .footer {
   background-color: #0d0120;
@@ -478,19 +468,6 @@ body {
 .version {
   font-size: 12px;
   color: rgba(255, 255, 255, 0.4);
-}
-
-/* ── ANIMAÇÕES ── */
-
-.reveal {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.65s ease, transform 0.65s ease;
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .pipe{
